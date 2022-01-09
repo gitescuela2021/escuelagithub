@@ -1,0 +1,76 @@
+{% extends 'base_formularios.html' %}
+{% load static %}
+{% block cursos_centro %}
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Perfil</h1>	
+			</div>
+			<!-- Errores  -->
+			{% include 'includes/manejo_errores.html' %}			
+			<form action="." method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+					<div class="row mb-4">
+						<div class="col-3">
+							Nombre:
+						</div>
+						<div class="col-9">
+							{{ form.nombre }}
+						</div>						
+					</div>
+					<div class="row mb-4">
+						<div class="col-3">
+							Avatar:
+						</div>
+						<div class="col-9">
+							{{ form.avatar }}
+						</div>						
+					</div>
+					<div class="row mb-4">
+						<div class="col-3">
+							Experiencia:
+						</div>
+						<div class="col-9">
+							{{ form.biografia }}
+						</div>						
+					</div>
+					<div class="row mb-4">
+						<div class="col-3">
+							Recibe Mails:
+						</div>
+						<div class="col-9">
+							{{ form.recibemails }}
+						</div>						
+					</div>
+					<div class="row mb-4">
+						<div class="col-3">
+							Sexo:
+						</div>
+						<div class="col-9">
+							{{ form.sexo }}
+						</div>						
+					</div>
+					<div class="row mb-4">
+						<div class="col-3">
+							Fecha nacimiento:
+						</div>
+						<div class="col-9">
+							{{ form.nacimiento }}
+						</div>			
+						{{form.nacimiento.errors}}			
+					</div>
+					<div class="row mb-4">
+						<input class="col-12 btn btn-primary btn-block" type="submit" value="Submit">
+					</div>
+			</form>
+			<div class="row mb-4">
+				<div class="col">
+					<p>
+						Si desea cambiar su password puede hacerlo en este 
+						<a href="{% url 'registration:cambio_password' %}"> enlace</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
